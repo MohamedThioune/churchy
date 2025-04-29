@@ -22,6 +22,15 @@ class TitheAPIController extends AppBaseController
      *      summary="getTitheList",
      *      tags={"Tithe"},
      *      description="Get all Tithes",
+     *      @OA\Parameter(
+     *          name="Authorization",
+     *          description="Bearer token for authentication",
+     *           @OA\Schema(
+     *             type="string"
+     *          ),
+     *          required=true,
+     *          in="header"
+     *      ),
      *      @OA\Response(
      *          response=200,
      *          description="successful operation",
@@ -66,6 +75,15 @@ class TitheAPIController extends AppBaseController
      *      summary="createTithe",
      *      tags={"Tithe"},
      *      description="Create Tithe",
+     *      @OA\Parameter(
+     *          name="Authorization",
+     *          description="Bearer token for authentication",
+     *           @OA\Schema(
+     *             type="string"
+     *          ),
+     *          required=true,
+     *          in="header"
+     *      ),
      *      @OA\RequestBody(
      *        required=true,
      *        @OA\JsonContent(ref="#/components/schemas/Tithe")
@@ -107,6 +125,15 @@ class TitheAPIController extends AppBaseController
      *      summary="getTitheItem",
      *      tags={"Tithe"},
      *      description="Get Tithe",
+     *      @OA\Parameter(
+     *          name="Authorization",
+     *          description="Bearer token for authentication",
+     *           @OA\Schema(
+     *             type="string"
+     *          ),
+     *          required=true,
+     *          in="header"
+     *      ),
      *      @OA\Parameter(
      *          name="id",
      *          description="id of Tithe",
@@ -155,6 +182,15 @@ class TitheAPIController extends AppBaseController
      *      summary="updateTithe",
      *      tags={"Tithe"},
      *      description="Update Tithe",
+     *      @OA\Parameter(
+     *          name="Authorization",
+     *          description="Bearer token for authentication",
+     *           @OA\Schema(
+     *             type="string"
+     *          ),
+     *          required=true,
+     *          in="header"
+     *      ),
      *      @OA\Parameter(
      *          name="id",
      *          description="id of Tithe",
@@ -210,6 +246,15 @@ class TitheAPIController extends AppBaseController
      *      summary="deleteTithe",
      *      tags={"Tithe"},
      *      description="Delete Tithe",
+     *      @OA\Parameter(
+     *          name="Authorization",
+     *          description="Bearer token for authentication",
+     *           @OA\Schema(
+     *             type="string"
+     *          ),
+     *          required=true,
+     *          in="header"
+     *      ),
      *      @OA\Parameter(
      *          name="id",
      *          description="id of Tithe",

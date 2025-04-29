@@ -29,7 +29,7 @@ class TitheApiTest extends TestCase
 
     /**
      * @test
-     */
+    */
     public function test_read_tithe()
     {
         $tithe = Tithe::factory()->create();
@@ -44,7 +44,7 @@ class TitheApiTest extends TestCase
 
     /**
      * @test
-     */
+    */
     public function test_update_tithe()
     {
         $tithe = Tithe::factory()->create();
@@ -61,7 +61,7 @@ class TitheApiTest extends TestCase
 
     /**
      * @test
-     */
+    */
     public function test_delete_tithe()
     {
         $tithe = Tithe::factory()->create();

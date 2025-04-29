@@ -71,6 +71,7 @@ class Deposit extends Model
 
     protected $casts = [
         // 'user_id' => 'integer',
+        'amount' => 'integer',
         'destination' => 'string',
         'comment' => 'string'
     ];

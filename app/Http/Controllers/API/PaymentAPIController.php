@@ -22,6 +22,15 @@ class PaymentAPIController extends AppBaseController
      *      summary="getPaymentList",
      *      tags={"Payment"},
      *      description="Get all Payments",
+     *      @OA\Parameter(
+     *          name="Authorization",
+     *          description="Bearer token for authentication",
+     *           @OA\Schema(
+     *             type="string"
+     *          ),
+     *          required=true,
+     *          in="header"
+     *      ),
      *      @OA\Response(
      *          response=200,
      *          description="successful operation",
@@ -66,6 +75,15 @@ class PaymentAPIController extends AppBaseController
      *      summary="createPayment",
      *      tags={"Payment"},
      *      description="Create Payment",
+     *      @OA\Parameter(
+     *          name="Authorization",
+     *          description="Bearer token for authentication",
+     *           @OA\Schema(
+     *             type="string"
+     *          ),
+     *          required=true,
+     *          in="header"
+     *      ),
      *      @OA\RequestBody(
      *        required=true,
      *        @OA\JsonContent(ref="#/components/schemas/Payment")
@@ -107,6 +125,15 @@ class PaymentAPIController extends AppBaseController
      *      summary="getPaymentItem",
      *      tags={"Payment"},
      *      description="Get Payment",
+     *      @OA\Parameter(
+     *          name="Authorization",
+     *          description="Bearer token for authentication",
+     *           @OA\Schema(
+     *             type="string"
+     *          ),
+     *          required=true,
+     *          in="header"
+     *      ),
      *      @OA\Parameter(
      *          name="id",
      *          description="id of Payment",
@@ -155,6 +182,15 @@ class PaymentAPIController extends AppBaseController
      *      summary="updatePayment",
      *      tags={"Payment"},
      *      description="Update Payment",
+     *      @OA\Parameter(
+     *          name="Authorization",
+     *          description="Bearer token for authentication",
+     *           @OA\Schema(
+     *             type="string"
+     *          ),
+     *          required=true,
+     *          in="header"
+     *      ),
      *      @OA\Parameter(
      *          name="id",
      *          description="id of Payment",
@@ -210,6 +246,15 @@ class PaymentAPIController extends AppBaseController
      *      summary="deletePayment",
      *      tags={"Payment"},
      *      description="Delete Payment",
+     *      @OA\Parameter(
+     *          name="Authorization",
+     *          description="Bearer token for authentication",
+     *           @OA\Schema(
+     *             type="string"
+     *          ),
+     *          required=true,
+     *          in="header"
+     *      ),
      *      @OA\Parameter(
      *          name="id",
      *          description="id of Payment",

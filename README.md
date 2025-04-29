@@ -12,6 +12,7 @@ This is the web app corresponding to the APi
 - Redis(Cache, Queue connection)
 - PHPUnit (Unit tests & Feature tests)
 - S3 (Storage)
+- Laravel Herd (Setup)
 
 ## Prerequisites
 Ensure you have the following installed:

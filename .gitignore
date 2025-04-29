@@ -17,3 +17,10 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
+codealike.json
+/storage/api-docs/api-docs.json
+/storage/app/temp
+.editorconfig 
+composer.lock
+package-lock.json
+.phpunit.result.cache

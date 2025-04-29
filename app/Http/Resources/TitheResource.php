@@ -17,7 +17,8 @@ class TitheResource extends JsonResource
         return [
             'id' => $this->id,
             'amount' => $this->amount,
-            'user_id' => $this->user_id,
+            'user' => $this->user ?? null,
+            'user_id' => $this->user ? $this->user->id : null,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at
         ];

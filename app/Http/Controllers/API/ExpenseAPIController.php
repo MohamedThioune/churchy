@@ -22,6 +22,15 @@ class ExpenseAPIController extends AppBaseController
      *      summary="getExpenseList",
      *      tags={"Expense"},
      *      description="Get all Expenses",
+     *      @OA\Parameter(
+     *          name="Authorization",
+     *          description="Bearer token for authentication",
+     *           @OA\Schema(
+     *             type="string"
+     *          ),
+     *          required=true,
+     *          in="header"
+     *      ),
      *      @OA\Response(
      *          response=200,
      *          description="successful operation",
@@ -43,7 +52,7 @@ class ExpenseAPIController extends AppBaseController
      *          )
      *      )
      * )
-     */
+    */
     public function index(Request $request): JsonResponse
     {
         $query = Expense::query();
@@ -66,6 +75,15 @@ class ExpenseAPIController extends AppBaseController
      *      summary="createExpense",
      *      tags={"Expense"},
      *      description="Create Expense",
+     *      @OA\Parameter(
+     *          name="Authorization",
+     *          description="Bearer token for authentication",
+     *           @OA\Schema(
+     *             type="string"
+     *          ),
+     *          required=true,
+     *          in="header"
+     *      ),
      *      @OA\RequestBody(
      *        required=true,
      *        @OA\JsonContent(ref="#/components/schemas/Expense")
@@ -107,6 +125,15 @@ class ExpenseAPIController extends AppBaseController
      *      summary="getExpenseItem",
      *      tags={"Expense"},
      *      description="Get Expense",
+     *      @OA\Parameter(
+     *          name="Authorization",
+     *          description="Bearer token for authentication",
+     *           @OA\Schema(
+     *             type="string"
+     *          ),
+     *          required=true,
+     *          in="header"
+     *      ),
      *      @OA\Parameter(
      *          name="id",
      *          description="id of Expense",
@@ -155,6 +182,15 @@ class ExpenseAPIController extends AppBaseController
      *      summary="updateExpense",
      *      tags={"Expense"},
      *      description="Update Expense",
+     *      @OA\Parameter(
+     *          name="Authorization",
+     *          description="Bearer token for authentication",
+     *           @OA\Schema(
+     *             type="string"
+     *          ),
+     *          required=true,
+     *          in="header"
+     *      ),
      *      @OA\Parameter(
      *          name="id",
      *          description="id of Expense",
@@ -210,6 +246,15 @@ class ExpenseAPIController extends AppBaseController
      *      summary="deleteExpense",
      *      tags={"Expense"},
      *      description="Delete Expense",
+     *      @OA\Parameter(
+     *          name="Authorization",
+     *          description="Bearer token for authentication",
+     *           @OA\Schema(
+     *             type="string"
+     *          ),
+     *          required=true,
+     *          in="header"
+     *      ),
      *      @OA\Parameter(
      *          name="id",
      *          description="id of Expense",

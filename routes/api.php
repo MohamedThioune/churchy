@@ -24,34 +24,23 @@ Route::get('/login',  function (Request $request) {
 Route::post('/oauth/token', [AccessTokenController::class, 'issueToken'])->name('passport.token');
 Route::post('/register', [App\Http\Controllers\API\AuthAPIController::class, 'register'])->name('auth.register');
 // Route::post('/login', [App\Http\Controllers\API\AuthAPIController::class, 'login'])->name('auth.login');
-Route::middleware('auth:api')->post('/logout', [App\Http\Controllers\API\AuthAPIController::class, 'logout'])->name('auth.logout');;
-Route::middleware('auth:api')->get('/user', [App\Http\Controllers\API\AuthAPIController::class, 'user'])->name('auth.user');;
 
 Route::post('/upload', [App\Http\Controllers\API\FileAPIController::class, 'upload'])->name('file.upload');
+Route::resource('files', App\Http\Controllers\API\FileAPIController::class)->except(['create', 'edit']);
+// Route::group(['middleware' => ['auth:api']], function () {
+    Route::middleware('auth:api')->post('/logout', [App\Http\Controllers\API\AuthAPIController::class, 'logout'])->name('auth.logout');
+    Route::middleware('auth:api')->get('/user', [App\Http\Controllers\API\AuthAPIController::class, 'user'])->name('auth.user');
+    Route::resource('expenses', App\Http\Controllers\API\ExpenseAPIController::class)->except(['create', 'edit']);
+    Route::resource('deposits', App\Http\Controllers\API\DepositAPIController::class)->except(['create', 'edit']);
+    Route::resource('demands', App\Http\Controllers\API\DemandAPIController::class)->except(['create', 'edit']);
+    Route::resource('workships', App\Http\Controllers\API\WorkshipAPIController::class)->except(['create', 'edit']);
+    Route::resource('tithes', App\Http\Controllers\API\TitheAPIController::class)->except(['create', 'edit']);
+    Route::resource('payments', App\Http\Controllers\API\PaymentAPIController::class)->except(['create', 'edit']);
+    Route::resource('sacraments', App\Http\Controllers\API\SacramentAPIController::class)->except(['create', 'edit']);
+    Route::resource('don-legs', App\Http\Controllers\API\DonLegAPIController::class)->except(['create', 'edit']);
+// });
 
-Route::resource('files', App\Http\Controllers\API\FileAPIController::class)
-    ->except(['create', 'edit']);
+// Route::group(['middleware' => ['auth:api']], function () {
+    Route::get('/dashboard/home', [App\Http\Controllers\API\DashboardAPIController::class, 'index'])->name('dashboard.index');
+// });
 
-Route::resource('expenses', App\Http\Controllers\API\ExpenseAPIController::class)
-    ->except(['create', 'edit']);
-
-Route::resource('deposits', App\Http\Controllers\API\DepositAPIController::class)
-    ->except(['create', 'edit']);
-
-Route::resource('demands', App\Http\Controllers\API\DemandAPIController::class)
-    ->except(['create', 'edit']);
-
-Route::resource('workships', App\Http\Controllers\API\WorkshipAPIController::class)
-    ->except(['create', 'edit']);
-
-Route::resource('tithes', App\Http\Controllers\API\TitheAPIController::class)
-    ->except(['create', 'edit']);
-
-Route::resource('payments', App\Http\Controllers\API\PaymentAPIController::class)
-    ->except(['create', 'edit']);
-
-Route::resource('sacraments', App\Http\Controllers\API\SacramentAPIController::class)
-    ->except(['create', 'edit']);
-
-Route::resource('don-legs', App\Http\Controllers\API\DonLegAPIController::class)
-    ->except(['create', 'edit']);

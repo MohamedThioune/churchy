@@ -22,6 +22,15 @@ class DonLegAPIController extends AppBaseController
      *      summary="getDonLegList",
      *      tags={"DonLeg"},
      *      description="Get all DonLegs",
+     *      @OA\Parameter(
+     *          name="Authorization",
+     *          description="Bearer token for authentication",
+     *           @OA\Schema(
+     *             type="string"
+     *          ),
+     *          required=true,
+     *          in="header"
+     *      ),
      *      @OA\Response(
      *          response=200,
      *          description="successful operation",
@@ -66,6 +75,15 @@ class DonLegAPIController extends AppBaseController
      *      summary="createDonLeg",
      *      tags={"DonLeg"},
      *      description="Create DonLeg",
+     *      @OA\Parameter(
+     *          name="Authorization",
+     *          description="Bearer token for authentication",
+     *           @OA\Schema(
+     *             type="string"
+     *          ),
+     *          required=true,
+     *          in="header"
+     *      ),
      *      @OA\RequestBody(
      *        required=true,
      *        @OA\JsonContent(ref="#/components/schemas/DonLeg")
@@ -107,6 +125,15 @@ class DonLegAPIController extends AppBaseController
      *      summary="getDonLegItem",
      *      tags={"DonLeg"},
      *      description="Get DonLeg",
+     *      @OA\Parameter(
+     *          name="Authorization",
+     *          description="Bearer token for authentication",
+     *           @OA\Schema(
+     *             type="string"
+     *          ),
+     *          required=true,
+     *          in="header"
+     *      ),
      *      @OA\Parameter(
      *          name="id",
      *          description="id of DonLeg",
@@ -155,6 +182,15 @@ class DonLegAPIController extends AppBaseController
      *      summary="updateDonLeg",
      *      tags={"DonLeg"},
      *      description="Update DonLeg",
+     *      @OA\Parameter(
+     *          name="Authorization",
+     *          description="Bearer token for authentication",
+     *           @OA\Schema(
+     *             type="string"
+     *          ),
+     *          required=true,
+     *          in="header"
+     *      ),
      *      @OA\Parameter(
      *          name="id",
      *          description="id of DonLeg",
@@ -210,6 +246,15 @@ class DonLegAPIController extends AppBaseController
      *      summary="deleteDonLeg",
      *      tags={"DonLeg"},
      *      description="Delete DonLeg",
+     *      @OA\Parameter(
+     *          name="Authorization",
+     *          description="Bearer token for authentication",
+     *           @OA\Schema(
+     *             type="string"
+     *          ),
+     *          required=true,
+     *          in="header"
+     *      ),
      *      @OA\Parameter(
      *          name="id",
      *          description="id of DonLeg",

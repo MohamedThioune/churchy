@@ -143,8 +143,7 @@ class User extends Authenticatable
         'email' => 'required|email|unique:users,email',
         'password' => 'required|string',
         'gender' => 'required|string|in:Homme,Femme',
-        'role' => 'required|string|in:' . Rolenum::ADMIN->value .','. Rolenum::CASHIER->value . ','. Rolenum::CHRISTIAN->value,
-
+        'role' => 'required|string|in:' . Rolenum::CASHIER->value . ','. Rolenum::CHRISTIAN->value,
     ];
 
     public function files()
