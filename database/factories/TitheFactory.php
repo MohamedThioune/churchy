@@ -1,0 +1,33 @@
+<?php
+
+namespace Database\Factories;
+
+use App\Models\Tithe;
+use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Enums\Rolenum;
+
+class TitheFactory extends Factory
+{
+    /**
+     * The name of the factory's corresponding model.
+     *
+     * @var string
+     */
+    protected $model = Tithe::class;
+
+    /**
+     * Define the model's default state.
+     *
+     * @return array
+     */
+    public function definition()
+    {
+        
+        return [
+            'amount' => $this->faker->randomElement(array(10, 10000, 15000, 1500, 100, 20000, 5000, 3000, 2000)),
+            'user_id' => $this->faker->randomElement(\App\Models\User::role(Rolenum::CASHIER->value)->pluck('id')->toArray()),
+            'created_at' => $this->faker->date('Y-m-d H:i:s'),
+            'updated_at' => $this->faker->date('Y-m-d H:i:s')
+        ];
+    }
+}
