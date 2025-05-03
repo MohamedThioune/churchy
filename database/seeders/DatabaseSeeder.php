@@ -29,6 +29,7 @@ class DatabaseSeeder extends Seeder
             PaymentsTableSeeder::class,
             SacramentsTableSeeder::class,
             DonLegsTableSeeder::class,
+            QuestsTableSeeder::class,
         ]);
 
 

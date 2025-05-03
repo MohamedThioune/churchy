@@ -22,15 +22,7 @@ class DemandAPIController extends AppBaseController
      *      summary="getDemandList",
      *      tags={"Demand"},
      *      description="Get all Demands",
-     *      @OA\Parameter(
-     *          name="Authorization",
-     *          description="Bearer token for authentication",
-     *           @OA\Schema(
-     *             type="string"
-     *          ),
-     *          required=true,
-     *          in="header"
-     *      ),
+     *      security={{"passport":{}}},
      *      @OA\Response(
      *          response=200,
      *          description="successful operation",
@@ -75,15 +67,7 @@ class DemandAPIController extends AppBaseController
      *      summary="createDemand",
      *      tags={"Demand"},
      *      description="Create Demand",
-     *      @OA\Parameter(
-     *          name="Authorization",
-     *          description="Bearer token for authentication",
-     *           @OA\Schema(
-     *             type="string"
-     *          ),
-     *          required=true,
-     *          in="header"
-     *      ),
+     *      security={{"passport":{}}},
      *      @OA\RequestBody(
      *        required=true,
      *        @OA\JsonContent(ref="#/components/schemas/Demand")
@@ -125,15 +109,7 @@ class DemandAPIController extends AppBaseController
      *      summary="getDemandItem",
      *      tags={"Demand"},
      *      description="Get Demand",
-     *      @OA\Parameter(
-     *          name="Authorization",
-     *          description="Bearer token for authentication",
-     *           @OA\Schema(
-     *             type="string"
-     *          ),
-     *          required=true,
-     *          in="header"
-     *      ),
+     *      security={{"passport":{}}},
      *      @OA\Parameter(
      *          name="id",
      *          description="id of Demand",
@@ -182,15 +158,7 @@ class DemandAPIController extends AppBaseController
      *      summary="updateDemand",
      *      tags={"Demand"},
      *      description="Update Demand",
-     *      @OA\Parameter(
-     *          name="Authorization",
-     *          description="Bearer token for authentication",
-     *           @OA\Schema(
-     *             type="string"
-     *          ),
-     *          required=true,
-     *          in="header"
-     *      ),
+     *      security={{"passport":{}}},
      *      @OA\Parameter(
      *          name="id",
      *          description="id of Demand",
@@ -246,15 +214,7 @@ class DemandAPIController extends AppBaseController
      *      summary="deleteDemand",
      *      tags={"Demand"},
      *      description="Delete Demand",
-     *      @OA\Parameter(
-     *          name="Authorization",
-     *          description="Bearer token for authentication",
-     *           @OA\Schema(
-     *             type="string"
-     *          ),
-     *          required=true,
-     *          in="header"
-     *      ),
+     *      security={{"passport":{}}},
      *      @OA\Parameter(
      *          name="id",
      *          description="id of Demand",

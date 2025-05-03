@@ -2,26 +2,29 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Http\Requests\API\CreatePaymentAPIRequest;
-use App\Http\Requests\API\UpdatePaymentAPIRequest;
-use App\Models\Payment;
+use App\Http\Requests\API\CreateQuestAPIRequest;
+use App\Http\Requests\API\UpdateQuestAPIRequest;
+use App\Models\Quest;
+use App\Models\User;
+use App\Models\Settlement;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AppBaseController;
-use App\Http\Resources\PaymentResource;
+use App\Http\Resources\QuestResource;
+use DB;
 
 /**
- * Class PaymentController
+ * Class QuestController
  */
 
-class PaymentAPIController extends AppBaseController
+class QuestAPIController extends AppBaseController
 {
     /**
      * @OA\Get(
-     *      path="/payments",
-     *      summary="getPaymentList",
-     *      tags={"Payment"},
-     *      description="Get all Payments",
+     *      path="/quests",
+     *      summary="getQuestList",
+     *      tags={"Quest"},
+     *      description="Get all Quests",
      *      security={{"passport":{}}},
      *      @OA\Response(
      *          response=200,
@@ -35,7 +38,7 @@ class PaymentAPIController extends AppBaseController
      *              @OA\Property(
      *                  property="data",
      *                  type="array",
-     *                  @OA\Items(ref="#/components/schemas/Payment")
+     *                  @OA\Items(ref="#/components/schemas/Quest")
      *              ),
      *              @OA\Property(
      *                  property="message",
@@ -47,7 +50,7 @@ class PaymentAPIController extends AppBaseController
      */
     public function index(Request $request): JsonResponse
     {
-        $query = Payment::query();
+        $query = Quest::query();
 
         if ($request->get('skip')) {
             $query->skip($request->get('skip'));
@@ -56,21 +59,21 @@ class PaymentAPIController extends AppBaseController
             $query->limit($request->get('limit'));
         }
 
-        $payments = $query->get();
+        $quests = $query->get();
 
-        return $this->sendResponse(PaymentResource::collection($payments), 'Payments retrieved successfully');
+        return $this->sendResponse(QuestResource::collection($quests), 'Quests retrieved successfully');
     }
 
     /**
      * @OA\Post(
-     *      path="/payments",
-     *      summary="createPayment",
-     *      tags={"Payment"},
-     *      description="Create Payment",
+     *      path="/quests",
+     *      summary="createQuest",
+     *      tags={"Quest"},
+     *      description="Create Quest",
      *      security={{"passport":{}}},
      *      @OA\RequestBody(
      *        required=true,
-     *        @OA\JsonContent(ref="#/components/schemas/Payment")
+     *        @OA\JsonContent(ref="#/components/schemas/Quest")
      *      ),
      *      @OA\Response(
      *          response=200,
@@ -83,7 +86,7 @@ class PaymentAPIController extends AppBaseController
      *              ),
      *              @OA\Property(
      *                  property="data",
-     *                  ref="#/components/schemas/Payment"
+     *                  ref="#/components/schemas/Quest"
      *              ),
      *              @OA\Property(
      *                  property="message",
@@ -93,26 +96,38 @@ class PaymentAPIController extends AppBaseController
      *      )
      * )
      */
-    public function store(CreatePaymentAPIRequest $request): JsonResponse
+    public function store(CreateQuestAPIRequest $request): JsonResponse
     {
-        $input = $request->all();
+        $input = $request->only(['amount', 'type', 'location', 'ceremony', 'quested_at']);
 
-        /** @var Payment $payment */
-        $payment = Payment::create($input);
+        /** @var Quest $quest */
+        $quest = Quest::create($input);
 
-        return $this->sendResponse(new PaymentResource($payment), 'Payment saved successfully');
+        //users settlements
+        $users = $request->has('user_ids') ? $request->get('user_ids') : [];
+        foreach($users as $id):
+            $user = User::find($id);
+            if (empty($user))
+                continue;
+
+            if (!$user->settlements->contains('quest_id', $quest->id)) 
+                // $user->settlements()->create(['quest_id', $quest->id]);
+                Settlement::create(['quest_id' => $quest->id, 'user_id' => $user->id]);
+        endforeach;
+
+        return $this->sendResponse(new QuestResource($quest), 'Quest saved successfully');
     }
 
     /**
      * @OA\Get(
-     *      path="/payments/{id}",
-     *      summary="getPaymentItem",
-     *      tags={"Payment"},
-     *      description="Get Payment",
+     *      path="/quests/{id}",
+     *      summary="getQuestItem",
+     *      tags={"Quest"},
+     *      description="Get Quest",
      *      security={{"passport":{}}},
      *      @OA\Parameter(
      *          name="id",
-     *          description="id of Payment",
+     *          description="id of Quest",
      *           @OA\Schema(
      *             type="integer"
      *          ),
@@ -130,7 +145,7 @@ class PaymentAPIController extends AppBaseController
      *              ),
      *              @OA\Property(
      *                  property="data",
-     *                  ref="#/components/schemas/Payment"
+     *                  ref="#/components/schemas/Quest"
      *              ),
      *              @OA\Property(
      *                  property="message",
@@ -142,26 +157,26 @@ class PaymentAPIController extends AppBaseController
      */
     public function show($id): JsonResponse
     {
-        /** @var Payment $payment */
-        $payment = Payment::find($id);
+        /** @var Quest $quest */
+        $quest = Quest::find($id);
 
-        if (empty($payment)) {
-            return $this->sendError('Payment not found');
+        if (empty($quest)) {
+            return $this->sendError('Quest not found');
         }
 
-        return $this->sendResponse(new PaymentResource($payment), 'Payment retrieved successfully');
+        return $this->sendResponse(new QuestResource($quest), 'Quest retrieved successfully');
     }
 
     /**
      * @OA\Put(
-     *      path="/payments/{id}",
-     *      summary="updatePayment",
-     *      tags={"Payment"},
-     *      description="Update Payment",
+     *      path="/quests/{id}",
+     *      summary="updateQuest",
+     *      tags={"Quest"},
+     *      description="Update Quest",
      *      security={{"passport":{}}},
      *      @OA\Parameter(
      *          name="id",
-     *          description="id of Payment",
+     *          description="id of Quest",
      *           @OA\Schema(
      *             type="integer"
      *          ),
@@ -170,7 +185,7 @@ class PaymentAPIController extends AppBaseController
      *      ),
      *      @OA\RequestBody(
      *        required=true,
-     *        @OA\JsonContent(ref="#/components/schemas/Payment")
+     *        @OA\JsonContent(ref="#/components/schemas/Quest")
      *      ),
      *      @OA\Response(
      *          response=200,
@@ -183,7 +198,7 @@ class PaymentAPIController extends AppBaseController
      *              ),
      *              @OA\Property(
      *                  property="data",
-     *                  ref="#/components/schemas/Payment"
+     *                  ref="#/components/schemas/Quest"
      *              ),
      *              @OA\Property(
      *                  property="message",
@@ -193,31 +208,44 @@ class PaymentAPIController extends AppBaseController
      *      )
      * )
      */
-    public function update($id, UpdatePaymentAPIRequest $request): JsonResponse
+    public function update($id, UpdateQuestAPIRequest $request): JsonResponse
     {
-        /** @var Payment $payment */
-        $payment = Payment::find($id);
+        /** @var Quest $quest */
+        $quest = Quest::find($id);
 
-        if (empty($payment)) {
-            return $this->sendError('Payment not found');
+        if (empty($quest)) {
+            return $this->sendError('Quest not found');
         }
+        $quest->fill($request->all());
+        $quest->save();
 
-        $payment->fill($request->all());
-        $payment->save();
+        //users settlements
+        $users = $request->has('users') ? $request->get('users') : [];
+        if (!empty($users))
+            Settlement::where('quest_id', $id)->delete();
 
-        return $this->sendResponse(new PaymentResource($payment), 'Payment updated successfully');
+        foreach($users as $id):
+            $user = User::find($id);
+            if (empty($user))
+                continue;
+
+            if (!$user->settlements->contains('quest_id', $id)) 
+                $user->settlements()->create(['quest_id', $id]);
+        endforeach;
+
+        return $this->sendResponse(new QuestResource($quest), 'Quest updated successfully');
     }
 
     /**
      * @OA\Delete(
-     *      path="/payments/{id}",
-     *      summary="deletePayment",
-     *      tags={"Payment"},
-     *      description="Delete Payment",
+     *      path="/quests/{id}",
+     *      summary="deleteQuest",
+     *      tags={"Quest"},
+     *      description="Delete Quest",
      *      security={{"passport":{}}},
      *      @OA\Parameter(
      *          name="id",
-     *          description="id of Payment",
+     *          description="id of Quest",
      *           @OA\Schema(
      *             type="integer"
      *          ),
@@ -247,15 +275,15 @@ class PaymentAPIController extends AppBaseController
      */
     public function destroy($id): JsonResponse
     {
-        /** @var Payment $payment */
-        $payment = Payment::find($id);
+        /** @var Quest $quest */
+        $quest = Quest::find($id);
 
-        if (empty($payment)) {
-            return $this->sendError('Payment not found');
+        if (empty($quest)) {
+            return $this->sendError('Quest not found');
         }
 
-        $payment->delete();
+        $quest->delete();
 
-        return $this->sendSuccess('Payment deleted successfully');
+        return $this->sendSuccess('Quest deleted successfully');
     }
 }

@@ -22,15 +22,7 @@ class SacramentAPIController extends AppBaseController
      *      summary="getSacramentList",
      *      tags={"Sacrament"},
      *      description="Get all Sacraments",
-     *      @OA\Parameter(
-     *          name="Authorization",
-     *          description="Bearer token for authentication",
-     *           @OA\Schema(
-     *             type="string"
-     *          ),
-     *          required=true,
-     *          in="header"
-     *      ),
+     *      security={{"passport":{}}},
      *      @OA\Response(
      *          response=200,
      *          description="successful operation",
@@ -75,15 +67,7 @@ class SacramentAPIController extends AppBaseController
      *      summary="createSacrament",
      *      tags={"Sacrament"},
      *      description="Create Sacrament",
-     *      @OA\Parameter(
-     *          name="Authorization",
-     *          description="Bearer token for authentication",
-     *           @OA\Schema(
-     *             type="string"
-     *          ),
-     *          required=true,
-     *          in="header"
-     *      ),
+     *      security={{"passport":{}}},
      *      @OA\RequestBody(
      *        required=true,
      *        @OA\JsonContent(ref="#/components/schemas/Sacrament")
@@ -125,15 +109,7 @@ class SacramentAPIController extends AppBaseController
      *      summary="getSacramentItem",
      *      tags={"Sacrament"},
      *      description="Get Sacrament",
-     *      @OA\Parameter(
-     *          name="Authorization",
-     *          description="Bearer token for authentication",
-     *           @OA\Schema(
-     *             type="string"
-     *          ),
-     *          required=true,
-     *          in="header"
-     *      ),
+     *      security={{"passport":{}}},
      *      @OA\Parameter(
      *          name="id",
      *          description="id of Sacrament",
@@ -182,15 +158,7 @@ class SacramentAPIController extends AppBaseController
      *      summary="updateSacrament",
      *      tags={"Sacrament"},
      *      description="Update Sacrament",
-     *      @OA\Parameter(
-     *          name="Authorization",
-     *          description="Bearer token for authentication",
-     *           @OA\Schema(
-     *             type="string"
-     *          ),
-     *          required=true,
-     *          in="header"
-     *      ),
+     *      security={{"passport":{}}},
      *      @OA\Parameter(
      *          name="id",
      *          description="id of Sacrament",
@@ -246,15 +214,7 @@ class SacramentAPIController extends AppBaseController
      *      summary="deleteSacrament",
      *      tags={"Sacrament"},
      *      description="Delete Sacrament",
-     *      @OA\Parameter(
-     *          name="Authorization",
-     *          description="Bearer token for authentication",
-     *           @OA\Schema(
-     *             type="string"
-     *          ),
-     *          required=true,
-     *          in="header"
-     *      ),
+     *      security={{"passport":{}}},
      *      @OA\Parameter(
      *          name="id",
      *          description="id of Sacrament",

@@ -178,15 +178,7 @@ class AuthAPIController extends AppBaseController
      *      summary="logout",
      *      tags={"Auth"},
      *      description="Logout",
-     *      @OA\Parameter(
-     *          name="Authorization",
-     *          description="Bearer token for authentication",
-     *           @OA\Schema(
-     *             type="string"
-     *          ),
-     *          required=true,
-     *          in="header"
-     *      ),
+     *      security={{"passport":{}}},
      *      @OA\Response(
      *          response=200,
      *          description="successful operation",
@@ -221,15 +213,7 @@ class AuthAPIController extends AppBaseController
      *      summary="user",
      *      tags={"Auth"},
      *      description="User informations",
-     *      @OA\Parameter(
-     *          name="Authorization",
-     *          description="Bearer token for authentication",
-     *           @OA\Schema(
-     *             type="string"
-     *          ),
-     *          required=true,
-     *          in="header"
-     *      ),
+     *      security={{"passport":{}}},
      *      @OA\Response(
      *          response=200,
      *          description="successful operation",

@@ -26,6 +26,7 @@ class FileAPIController extends AppBaseController
      *      summary="uploadFile",
      *      tags={"Document"},
      *      description="Upload file",
+     *      security={{"passport":{}}},
      *      @OA\RequestBody(
      *        @OA\MediaType(
      *          mediaType="multipart/form-data",
@@ -130,6 +131,7 @@ class FileAPIController extends AppBaseController
      *      summary="ShowFile",
      *      tags={"Document"},
      *      description="Show the file",
+     *      security={{"passport":{}}},
      *      @OA\RequestBody(
      *        @OA\MediaType(
      *          mediaType="multipart/form-data",
@@ -183,6 +185,7 @@ class FileAPIController extends AppBaseController
      *      summary="deleteFile",
      *      tags={"Document"},
      *      description="Delete File",
+     *      security={{"passport":{}}},
      *      @OA\Parameter(
      *          name="id",
      *          description="id of File",

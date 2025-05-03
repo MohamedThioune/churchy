@@ -51,9 +51,9 @@ Ensure you have the following installed:
     DB_USERNAME={confidential}
     DB_PASSWORD={confidential}
    ```
-4. **Run migrations:**
+4. **Run migrations & nourrish our database with fakers :**
    ```sh
-   php artisan migrate
+   php artisan migrate:fresh --seed
    ```
 5. **Run the application:**
    ```sh

@@ -22,15 +22,7 @@ class WorkshipAPIController extends AppBaseController
      *      summary="getWorkshipList",
      *      tags={"Workship"},
      *      description="Get all Workships",
-     *      @OA\Parameter(
-     *          name="Authorization",
-     *          description="Bearer token for authentication",
-     *           @OA\Schema(
-     *             type="string"
-     *          ),
-     *          required=true,
-     *          in="header"
-     *      ),
+     *      security={{"passport":{}}},
      *      @OA\Response(
      *          response=200,
      *          description="successful operation",
@@ -75,15 +67,7 @@ class WorkshipAPIController extends AppBaseController
      *      summary="createWorkship",
      *      tags={"Workship"},
      *      description="Create Workship",
-     *      @OA\Parameter(
-     *          name="Authorization",
-     *          description="Bearer token for authentication",
-     *           @OA\Schema(
-     *             type="string"
-     *          ),
-     *          required=true,
-     *          in="header"
-     *      ),
+     *      security={{"passport":{}}},
      *      @OA\RequestBody(
      *        required=true,
      *        @OA\JsonContent(ref="#/components/schemas/Workship")
@@ -125,15 +109,7 @@ class WorkshipAPIController extends AppBaseController
      *      summary="getWorkshipItem",
      *      tags={"Workship"},
      *      description="Get Workship",
-     *      @OA\Parameter(
-     *          name="Authorization",
-     *          description="Bearer token for authentication",
-     *           @OA\Schema(
-     *             type="string"
-     *          ),
-     *          required=true,
-     *          in="header"
-     *      ),
+     *      security={{"passport":{}}},
      *      @OA\Parameter(
      *          name="id",
      *          description="id of Workship",
@@ -182,15 +158,7 @@ class WorkshipAPIController extends AppBaseController
      *      summary="updateWorkship",
      *      tags={"Workship"},
      *      description="Update Workship",
-     *      @OA\Parameter(
-     *          name="Authorization",
-     *          description="Bearer token for authentication",
-     *           @OA\Schema(
-     *             type="string"
-     *          ),
-     *          required=true,
-     *          in="header"
-     *      ),
+     *      security={{"passport":{}}},
      *      @OA\Parameter(
      *          name="id",
      *          description="id of Workship",
@@ -246,15 +214,7 @@ class WorkshipAPIController extends AppBaseController
      *      summary="deleteWorkship",
      *      tags={"Workship"},
      *      description="Delete Workship",
-     *      @OA\Parameter(
-     *          name="Authorization",
-     *          description="Bearer token for authentication",
-     *           @OA\Schema(
-     *             type="string"
-     *          ),
-     *          required=true,
-     *          in="header"
-     *      ),
+     *      security={{"passport":{}}},
      *      @OA\Parameter(
      *          name="id",
      *          description="id of Workship",

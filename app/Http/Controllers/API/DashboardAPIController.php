@@ -31,15 +31,7 @@ class DashboardAPIController extends AppBaseController
      *          ),
      *          in="query"
      *      ),
-     *      @OA\Parameter(
-     *          name="Authorization",
-     *          description="Bearer token for authentication",
-     *           @OA\Schema(
-     *             type="string"
-     *          ),
-     *          required=true,
-     *          in="header"
-     *      ),
+     *      security={{"passport":{}}},
      *      @OA\Response(
      *          response=200,
      *          description="successful operation",

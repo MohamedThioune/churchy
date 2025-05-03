@@ -13,7 +13,7 @@ use App\Enums\Rolenum;
 /**
  * @OA\Schema(
  *      schema="User",
- *      required={"first_name","last_name", "email", "gender", "password"},
+ *      required={"first_name","last_name", "email", "gender", "password" ,"role"},
  *      @OA\Property(
  *          property="first_name",
  *          description="",
@@ -45,6 +45,13 @@ use App\Enums\Rolenum;
  *      @OA\Property(
  *          property="gender",
  *          description="",
+ *          readOnly=false,
+ *          nullable=true,
+ *          type="string",
+ *      ),
+ *      @OA\Property(
+ *          property="role",
+ *          description="Could be either 'User' or 'Caisse' or 'Admin'",
  *          readOnly=false,
  *          nullable=true,
  *          type="string",
@@ -185,5 +192,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(DonLeg::class);
     }
-
+    
+    public function settlements()
+    {
+        return $this->hasMany(Settlement::class);
+    }
 }

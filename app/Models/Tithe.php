@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 /**
  * @OA\Schema(
  *      schema="Tithe",
- *      required={"amount"},
+ *      required={"amount", "user_id"},
  *      @OA\Property(
  *          property="amount",
  *          description="",

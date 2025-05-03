@@ -22,15 +22,7 @@ class DepositAPIController extends AppBaseController
      *      summary="getDepositList",
      *      tags={"Deposit"},
      *      description="Get all Deposits",
-     *      @OA\Parameter(
-     *          name="Authorization",
-     *          description="Bearer token for authentication",
-     *           @OA\Schema(
-     *             type="string"
-     *          ),
-     *          required=true,
-     *          in="header"
-     *      ),
+     *      security={{"passport":{}}},
      *      @OA\Response(
      *          response=200,
      *          description="successful operation",
@@ -75,15 +67,7 @@ class DepositAPIController extends AppBaseController
      *      summary="createDeposit",
      *      tags={"Deposit"},
      *      description="Create Deposit",
-     *      @OA\Parameter(
-     *          name="Authorization",
-     *          description="Bearer token for authentication",
-     *           @OA\Schema(
-     *             type="string"
-     *          ),
-     *          required=true,
-     *          in="header"
-     *      ),
+     *      security={{"passport":{}}},
      *      @OA\RequestBody(
      *        required=true,
      *        @OA\JsonContent(ref="#/components/schemas/Deposit")
@@ -125,15 +109,7 @@ class DepositAPIController extends AppBaseController
      *      summary="getDepositItem",
      *      tags={"Deposit"},
      *      description="Get Deposit",
-     *      @OA\Parameter(
-     *          name="Authorization",
-     *          description="Bearer token for authentication",
-     *           @OA\Schema(
-     *             type="string"
-     *          ),
-     *          required=true,
-     *          in="header"
-     *      ),
+     *      security={{"passport":{}}},
      *      @OA\Parameter(
      *          name="id",
      *          description="id of Deposit",
@@ -182,15 +158,7 @@ class DepositAPIController extends AppBaseController
      *      summary="updateDeposit",
      *      tags={"Deposit"},
      *      description="Update Deposit",
-     *      @OA\Parameter(
-     *          name="Authorization",
-     *          description="Bearer token for authentication",
-     *           @OA\Schema(
-     *             type="string"
-     *          ),
-     *          required=true,
-     *          in="header"
-     *      ),
+     *      security={{"passport":{}}},
      *      @OA\Parameter(
      *          name="id",
      *          description="id of Deposit",
@@ -246,15 +214,7 @@ class DepositAPIController extends AppBaseController
      *      summary="deleteDeposit",
      *      tags={"Deposit"},
      *      description="Delete Deposit",
-     *      @OA\Parameter(
-     *          name="Authorization",
-     *          description="Bearer token for authentication",
-     *           @OA\Schema(
-     *             type="string"
-     *          ),
-     *          required=true,
-     *          in="header"
-     *      ),
+     *      security={{"passport":{}}},
      *      @OA\Parameter(
      *          name="id",
      *          description="id of Deposit",

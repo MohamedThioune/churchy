@@ -2,7 +2,7 @@
 
 namespace Tests\Feature;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use Illuminate\Support\Facades\Queue;
@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Log;
 
 class UploadFileTest extends TestCase
 {
+    use WithoutMiddleware;
 
     public function test_job_uploads_file_to_s3()
     {

@@ -157,17 +157,6 @@
                 "summary": "logout",
                 "description": "Logout",
                 "operationId": "bea97e9b795a01a3dc1066f23ae3bbba",
-                "parameters": [
-                    {
-                        "name": "Authorization",
-                        "in": "header",
-                        "description": "Bearer token for authentication",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
                 "responses": {
                     "200": {
                         "description": "successful operation",
@@ -190,7 +179,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             }
         },
         "/user": {
@@ -201,17 +195,6 @@
                 "summary": "user",
                 "description": "User informations",
                 "operationId": "2bf0745b3e4bdba2277632ee54b408e3",
-                "parameters": [
-                    {
-                        "name": "Authorization",
-                        "in": "header",
-                        "description": "Bearer token for authentication",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
                 "responses": {
                     "200": {
                         "description": "successful operation",
@@ -234,7 +217,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             }
         },
         "/dashboard/home": {
@@ -261,15 +249,6 @@
                         "schema": {
                             "type": "date"
                         }
-                    },
-                    {
-                        "name": "Authorization",
-                        "in": "header",
-                        "description": "Bearer token for authentication",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
                     }
                 ],
                 "responses": {
@@ -291,7 +270,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             }
         },
         "/demands": {
@@ -302,17 +286,6 @@
                 "summary": "getDemandList",
                 "description": "Get all Demands",
                 "operationId": "d229b7344b28def67ce527d69632985a",
-                "parameters": [
-                    {
-                        "name": "Authorization",
-                        "in": "header",
-                        "description": "Bearer token for authentication",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
                 "responses": {
                     "200": {
                         "description": "successful operation",
@@ -338,7 +311,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             },
             "post": {
                 "tags": [
@@ -347,17 +325,6 @@
                 "summary": "createDemand",
                 "description": "Create Demand",
                 "operationId": "8ec23876c08e70131fab38d478d741bd",
-                "parameters": [
-                    {
-                        "name": "Authorization",
-                        "in": "header",
-                        "description": "Bearer token for authentication",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -390,7 +357,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             }
         },
         "/demands/{id}": {
@@ -403,15 +375,6 @@
                 "operationId": "3eb0eeccb3cdccf1d256912b64b3051f",
                 "parameters": [
                     {
-                        "name": "Authorization",
-                        "in": "header",
-                        "description": "Bearer token for authentication",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
                         "name": "id",
                         "in": "path",
                         "description": "id of Demand",
@@ -443,7 +406,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             },
             "put": {
                 "tags": [
@@ -453,15 +421,6 @@
                 "description": "Update Demand",
                 "operationId": "062cd6b0cae01292a2a5e760f6f95b90",
                 "parameters": [
-                    {
-                        "name": "Authorization",
-                        "in": "header",
-                        "description": "Bearer token for authentication",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
                     {
                         "name": "id",
                         "in": "path",
@@ -504,7 +463,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             },
             "delete": {
                 "tags": [
@@ -514,15 +478,6 @@
                 "description": "Delete Demand",
                 "operationId": "b9a4448876d96531b4630edd73c6c5e2",
                 "parameters": [
-                    {
-                        "name": "Authorization",
-                        "in": "header",
-                        "description": "Bearer token for authentication",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
                     {
                         "name": "id",
                         "in": "path",
@@ -555,7 +510,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             }
         },
         "/deposits": {
@@ -566,17 +526,6 @@
                 "summary": "getDepositList",
                 "description": "Get all Deposits",
                 "operationId": "48dfbdf260f76f4ec42a75d29061f675",
-                "parameters": [
-                    {
-                        "name": "Authorization",
-                        "in": "header",
-                        "description": "Bearer token for authentication",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
                 "responses": {
                     "200": {
                         "description": "successful operation",
@@ -602,7 +551,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             },
             "post": {
                 "tags": [
@@ -611,17 +565,6 @@
                 "summary": "createDeposit",
                 "description": "Create Deposit",
                 "operationId": "e721d7dfc4dfdb2b6ee4cf19b6be28f0",
-                "parameters": [
-                    {
-                        "name": "Authorization",
-                        "in": "header",
-                        "description": "Bearer token for authentication",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -654,7 +597,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             }
         },
         "/deposits/{id}": {
@@ -667,15 +615,6 @@
                 "operationId": "309ca10b7f5c5d5ac33a3a9eb35f96b6",
                 "parameters": [
                     {
-                        "name": "Authorization",
-                        "in": "header",
-                        "description": "Bearer token for authentication",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
                         "name": "id",
                         "in": "path",
                         "description": "id of Deposit",
@@ -707,7 +646,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             },
             "put": {
                 "tags": [
@@ -717,15 +661,6 @@
                 "description": "Update Deposit",
                 "operationId": "3bcd324b994b2425b0a3e23585032c61",
                 "parameters": [
-                    {
-                        "name": "Authorization",
-                        "in": "header",
-                        "description": "Bearer token for authentication",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
                     {
                         "name": "id",
                         "in": "path",
@@ -768,7 +703,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             },
             "delete": {
                 "tags": [
@@ -778,15 +718,6 @@
                 "description": "Delete Deposit",
                 "operationId": "09c61b0c358635675f3dc421c844d79b",
                 "parameters": [
-                    {
-                        "name": "Authorization",
-                        "in": "header",
-                        "description": "Bearer token for authentication",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
                     {
                         "name": "id",
                         "in": "path",
@@ -819,7 +750,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             }
         },
         "/don-legs": {
@@ -830,17 +766,6 @@
                 "summary": "getDonLegList",
                 "description": "Get all DonLegs",
                 "operationId": "efb1a22b7ada97f16ad2305418a996bc",
-                "parameters": [
-                    {
-                        "name": "Authorization",
-                        "in": "header",
-                        "description": "Bearer token for authentication",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
                 "responses": {
                     "200": {
                         "description": "successful operation",
@@ -866,7 +791,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             },
             "post": {
                 "tags": [
@@ -875,17 +805,6 @@
                 "summary": "createDonLeg",
                 "description": "Create DonLeg",
                 "operationId": "1e7caa68f667c447c6c13a7dec31baa0",
-                "parameters": [
-                    {
-                        "name": "Authorization",
-                        "in": "header",
-                        "description": "Bearer token for authentication",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -918,7 +837,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             }
         },
         "/don-legs/{id}": {
@@ -931,15 +855,6 @@
                 "operationId": "d4ecdcfd32897071b9f99b6e8c11db38",
                 "parameters": [
                     {
-                        "name": "Authorization",
-                        "in": "header",
-                        "description": "Bearer token for authentication",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
                         "name": "id",
                         "in": "path",
                         "description": "id of DonLeg",
@@ -971,7 +886,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             },
             "put": {
                 "tags": [
@@ -981,15 +901,6 @@
                 "description": "Update DonLeg",
                 "operationId": "010894050fe030c9ee319d5e36cb9746",
                 "parameters": [
-                    {
-                        "name": "Authorization",
-                        "in": "header",
-                        "description": "Bearer token for authentication",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
                     {
                         "name": "id",
                         "in": "path",
@@ -1032,7 +943,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             },
             "delete": {
                 "tags": [
@@ -1042,15 +958,6 @@
                 "description": "Delete DonLeg",
                 "operationId": "62e27580b3f380e430ad4311f7cb4853",
                 "parameters": [
-                    {
-                        "name": "Authorization",
-                        "in": "header",
-                        "description": "Bearer token for authentication",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
                     {
                         "name": "id",
                         "in": "path",
@@ -1083,7 +990,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             }
         },
         "/expenses": {
@@ -1094,17 +1006,6 @@
                 "summary": "getExpenseList",
                 "description": "Get all Expenses",
                 "operationId": "a9b59176bdb4f9e7eb71d281f990aac4",
-                "parameters": [
-                    {
-                        "name": "Authorization",
-                        "in": "header",
-                        "description": "Bearer token for authentication",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
                 "responses": {
                     "200": {
                         "description": "successful operation",
@@ -1130,7 +1031,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             },
             "post": {
                 "tags": [
@@ -1139,17 +1045,6 @@
                 "summary": "createExpense",
                 "description": "Create Expense",
                 "operationId": "e99e2195ddd85287b80110b9ac9c2abb",
-                "parameters": [
-                    {
-                        "name": "Authorization",
-                        "in": "header",
-                        "description": "Bearer token for authentication",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -1182,7 +1077,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             }
         },
         "/expenses/{id}": {
@@ -1195,15 +1095,6 @@
                 "operationId": "281d23eef21ce6713acf799f586d8323",
                 "parameters": [
                     {
-                        "name": "Authorization",
-                        "in": "header",
-                        "description": "Bearer token for authentication",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
                         "name": "id",
                         "in": "path",
                         "description": "id of Expense",
@@ -1235,7 +1126,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             },
             "put": {
                 "tags": [
@@ -1245,15 +1141,6 @@
                 "description": "Update Expense",
                 "operationId": "094e8df2e5267e642a2a877f9ace8675",
                 "parameters": [
-                    {
-                        "name": "Authorization",
-                        "in": "header",
-                        "description": "Bearer token for authentication",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
                     {
                         "name": "id",
                         "in": "path",
@@ -1296,7 +1183,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             },
             "delete": {
                 "tags": [
@@ -1306,15 +1198,6 @@
                 "description": "Delete Expense",
                 "operationId": "81461060a6eed4b68d21891dc913dd8b",
                 "parameters": [
-                    {
-                        "name": "Authorization",
-                        "in": "header",
-                        "description": "Bearer token for authentication",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
                     {
                         "name": "id",
                         "in": "path",
@@ -1347,7 +1230,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             }
         },
         "/upload": {
@@ -1407,7 +1295,12 @@
                     "400": {
                         "description": "Invalid file format"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             }
         },
         "/retrieve": {
@@ -1454,7 +1347,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             }
         },
         "/files/{id}": {
@@ -1498,7 +1396,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             }
         },
         "/payments": {
@@ -1509,17 +1412,6 @@
                 "summary": "getPaymentList",
                 "description": "Get all Payments",
                 "operationId": "31423fdc330e72e97bc0fae8a8773897",
-                "parameters": [
-                    {
-                        "name": "Authorization",
-                        "in": "header",
-                        "description": "Bearer token for authentication",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
                 "responses": {
                     "200": {
                         "description": "successful operation",
@@ -1545,7 +1437,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             },
             "post": {
                 "tags": [
@@ -1554,17 +1451,6 @@
                 "summary": "createPayment",
                 "description": "Create Payment",
                 "operationId": "33b64415e1e822f02f3f561f7bbdffa1",
-                "parameters": [
-                    {
-                        "name": "Authorization",
-                        "in": "header",
-                        "description": "Bearer token for authentication",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -1597,7 +1483,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             }
         },
         "/payments/{id}": {
@@ -1610,15 +1501,6 @@
                 "operationId": "26491f54fbd5cf7d6205097f7c5065c2",
                 "parameters": [
                     {
-                        "name": "Authorization",
-                        "in": "header",
-                        "description": "Bearer token for authentication",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
                         "name": "id",
                         "in": "path",
                         "description": "id of Payment",
@@ -1650,7 +1532,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             },
             "put": {
                 "tags": [
@@ -1660,15 +1547,6 @@
                 "description": "Update Payment",
                 "operationId": "ecf88c02ff569ff490ae2e1825ec5eff",
                 "parameters": [
-                    {
-                        "name": "Authorization",
-                        "in": "header",
-                        "description": "Bearer token for authentication",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
                     {
                         "name": "id",
                         "in": "path",
@@ -1711,7 +1589,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             },
             "delete": {
                 "tags": [
@@ -1721,15 +1604,6 @@
                 "description": "Delete Payment",
                 "operationId": "35a425de2339399cda4730311905ae22",
                 "parameters": [
-                    {
-                        "name": "Authorization",
-                        "in": "header",
-                        "description": "Bearer token for authentication",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
                     {
                         "name": "id",
                         "in": "path",
@@ -1762,7 +1636,252 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/quests": {
+            "get": {
+                "tags": [
+                    "Quest"
+                ],
+                "summary": "getQuestList",
+                "description": "Get all Quests",
+                "operationId": "9efa86f93beba4410988776623c6e9f0",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/Quest"
+                                            }
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Quest"
+                ],
+                "summary": "createQuest",
+                "description": "Create Quest",
+                "operationId": "09ce607b14f8a9fb197b7ead2d130771",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Quest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "data": {
+                                            "$ref": "#/components/schemas/Quest"
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/quests/{id}": {
+            "get": {
+                "tags": [
+                    "Quest"
+                ],
+                "summary": "getQuestItem",
+                "description": "Get Quest",
+                "operationId": "c28664f9da552e1f33ddeece74c36c71",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of Quest",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "data": {
+                                            "$ref": "#/components/schemas/Quest"
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Quest"
+                ],
+                "summary": "updateQuest",
+                "description": "Update Quest",
+                "operationId": "c68ffad11a334e3b8e07cb7d67d6b833",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of Quest",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Quest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "data": {
+                                            "$ref": "#/components/schemas/Quest"
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Quest"
+                ],
+                "summary": "deleteQuest",
+                "description": "Delete Quest",
+                "operationId": "00f497edbc256f0efaf90d46c12c879a",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of Quest",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "data": {
+                                            "type": "string"
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             }
         },
         "/sacraments": {
@@ -1773,17 +1892,6 @@
                 "summary": "getSacramentList",
                 "description": "Get all Sacraments",
                 "operationId": "fe58f1e5945882bdf02d7241a640ccfa",
-                "parameters": [
-                    {
-                        "name": "Authorization",
-                        "in": "header",
-                        "description": "Bearer token for authentication",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
                 "responses": {
                     "200": {
                         "description": "successful operation",
@@ -1809,7 +1917,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             },
             "post": {
                 "tags": [
@@ -1818,17 +1931,6 @@
                 "summary": "createSacrament",
                 "description": "Create Sacrament",
                 "operationId": "5421d51fe9a3cae8e1d997a95627aabc",
-                "parameters": [
-                    {
-                        "name": "Authorization",
-                        "in": "header",
-                        "description": "Bearer token for authentication",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -1861,7 +1963,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             }
         },
         "/sacraments/{id}": {
@@ -1874,15 +1981,6 @@
                 "operationId": "747ad6770a96f2b203df4464e2c44e92",
                 "parameters": [
                     {
-                        "name": "Authorization",
-                        "in": "header",
-                        "description": "Bearer token for authentication",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
                         "name": "id",
                         "in": "path",
                         "description": "id of Sacrament",
@@ -1914,7 +2012,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             },
             "put": {
                 "tags": [
@@ -1924,15 +2027,6 @@
                 "description": "Update Sacrament",
                 "operationId": "fc5dd34569036e796fd0c48e06c23381",
                 "parameters": [
-                    {
-                        "name": "Authorization",
-                        "in": "header",
-                        "description": "Bearer token for authentication",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
                     {
                         "name": "id",
                         "in": "path",
@@ -1975,7 +2069,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             },
             "delete": {
                 "tags": [
@@ -1985,15 +2084,6 @@
                 "description": "Delete Sacrament",
                 "operationId": "8c98eeaa6233d4a57ff27bd289322d10",
                 "parameters": [
-                    {
-                        "name": "Authorization",
-                        "in": "header",
-                        "description": "Bearer token for authentication",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
                     {
                         "name": "id",
                         "in": "path",
@@ -2026,7 +2116,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             }
         },
         "/tithes": {
@@ -2037,17 +2132,6 @@
                 "summary": "getTitheList",
                 "description": "Get all Tithes",
                 "operationId": "4712c364dd183b7647419d3f82d6ad7b",
-                "parameters": [
-                    {
-                        "name": "Authorization",
-                        "in": "header",
-                        "description": "Bearer token for authentication",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
                 "responses": {
                     "200": {
                         "description": "successful operation",
@@ -2073,7 +2157,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             },
             "post": {
                 "tags": [
@@ -2082,17 +2171,6 @@
                 "summary": "createTithe",
                 "description": "Create Tithe",
                 "operationId": "462525bc2605d3936fb548bd9668fe4c",
-                "parameters": [
-                    {
-                        "name": "Authorization",
-                        "in": "header",
-                        "description": "Bearer token for authentication",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -2125,7 +2203,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             }
         },
         "/tithes/{id}": {
@@ -2138,15 +2221,6 @@
                 "operationId": "11d06a5c32141732b0ebe739b0347ffe",
                 "parameters": [
                     {
-                        "name": "Authorization",
-                        "in": "header",
-                        "description": "Bearer token for authentication",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
                         "name": "id",
                         "in": "path",
                         "description": "id of Tithe",
@@ -2178,7 +2252,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             },
             "put": {
                 "tags": [
@@ -2188,15 +2267,6 @@
                 "description": "Update Tithe",
                 "operationId": "c87da203d131c1fae7f4d1b6789a1cb8",
                 "parameters": [
-                    {
-                        "name": "Authorization",
-                        "in": "header",
-                        "description": "Bearer token for authentication",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
                     {
                         "name": "id",
                         "in": "path",
@@ -2239,7 +2309,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             },
             "delete": {
                 "tags": [
@@ -2249,15 +2324,6 @@
                 "description": "Delete Tithe",
                 "operationId": "ad3dd86b16a08ca0b72776035e87c5e7",
                 "parameters": [
-                    {
-                        "name": "Authorization",
-                        "in": "header",
-                        "description": "Bearer token for authentication",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
                     {
                         "name": "id",
                         "in": "path",
@@ -2290,7 +2356,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             }
         },
         "/workships": {
@@ -2301,17 +2372,6 @@
                 "summary": "getWorkshipList",
                 "description": "Get all Workships",
                 "operationId": "2eb77d33a1a5ea193728d42c38c9c868",
-                "parameters": [
-                    {
-                        "name": "Authorization",
-                        "in": "header",
-                        "description": "Bearer token for authentication",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
                 "responses": {
                     "200": {
                         "description": "successful operation",
@@ -2337,7 +2397,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             },
             "post": {
                 "tags": [
@@ -2346,17 +2411,6 @@
                 "summary": "createWorkship",
                 "description": "Create Workship",
                 "operationId": "3557bc5e9cb930367ce07c4dd455392b",
-                "parameters": [
-                    {
-                        "name": "Authorization",
-                        "in": "header",
-                        "description": "Bearer token for authentication",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -2389,7 +2443,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             }
         },
         "/workships/{id}": {
@@ -2402,15 +2461,6 @@
                 "operationId": "f481c5107e986ce754a0eeb0b8c01c41",
                 "parameters": [
                     {
-                        "name": "Authorization",
-                        "in": "header",
-                        "description": "Bearer token for authentication",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
                         "name": "id",
                         "in": "path",
                         "description": "id of Workship",
@@ -2442,7 +2492,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             },
             "put": {
                 "tags": [
@@ -2452,15 +2507,6 @@
                 "description": "Update Workship",
                 "operationId": "4bfeedf0a6a37ea72c7a98ea93467d3c",
                 "parameters": [
-                    {
-                        "name": "Authorization",
-                        "in": "header",
-                        "description": "Bearer token for authentication",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
                     {
                         "name": "id",
                         "in": "path",
@@ -2503,7 +2549,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             },
             "delete": {
                 "tags": [
@@ -2513,15 +2564,6 @@
                 "description": "Delete Workship",
                 "operationId": "0a007fc9e91e80fcab71d6f970a0839b",
                 "parameters": [
-                    {
-                        "name": "Authorization",
-                        "in": "header",
-                        "description": "Bearer token for authentication",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
                     {
                         "name": "id",
                         "in": "path",
@@ -2554,7 +2596,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
             }
         }
     },
@@ -2866,6 +2913,75 @@
                 },
                 "type": "object"
             },
+            "Quest": {
+                "required": [
+                    "amount",
+                    "type",
+                    "location",
+                    "ceremony",
+                    "users",
+                    "quested_at"
+                ],
+                "properties": {
+                    "amount": {
+                        "description": "",
+                        "type": "integer",
+                        "format": "int32",
+                        "readOnly": false,
+                        "nullable": false
+                    },
+                    "type": {
+                        "description": "",
+                        "type": "string",
+                        "readOnly": false,
+                        "nullable": false
+                    },
+                    "location": {
+                        "description": "",
+                        "type": "string",
+                        "readOnly": false,
+                        "nullable": false
+                    },
+                    "ceremony": {
+                        "description": "",
+                        "type": "string",
+                        "readOnly": false,
+                        "nullable": false
+                    },
+                    "users": {
+                        "description": "",
+                        "type": "array",
+                        "items": {
+                            "type": "integer",
+                            "format": "int32"
+                        },
+                        "readOnly": false,
+                        "nullable": false
+                    },
+                    "quested_at": {
+                        "description": "",
+                        "type": "string",
+                        "format": "date-time",
+                        "readOnly": true,
+                        "nullable": true
+                    },
+                    "created_at": {
+                        "description": "",
+                        "type": "string",
+                        "format": "date-time",
+                        "readOnly": true,
+                        "nullable": true
+                    },
+                    "updated_at": {
+                        "description": "",
+                        "type": "string",
+                        "format": "date-time",
+                        "readOnly": true,
+                        "nullable": true
+                    }
+                },
+                "type": "object"
+            },
             "Sacrament": {
                 "required": [
                     "reason",
@@ -2919,7 +3035,8 @@
             },
             "Tithe": {
                 "required": [
-                    "amount"
+                    "amount",
+                    "user_id"
                 ],
                 "properties": {
                     "amount": {
@@ -2959,7 +3076,8 @@
                     "last_name",
                     "email",
                     "gender",
-                    "password"
+                    "password",
+                    "role"
                 ],
                 "properties": {
                     "first_name": {
@@ -2988,6 +3106,12 @@
                     },
                     "gender": {
                         "description": "",
+                        "type": "string",
+                        "readOnly": false,
+                        "nullable": true
+                    },
+                    "role": {
+                        "description": "Could be either 'User' or 'Caisse' or 'Admin'",
                         "type": "string",
                         "readOnly": false,
                         "nullable": true
@@ -3069,6 +3193,23 @@
                 },
                 "type": "object"
             }
+        },
+        "securitySchemes": {
+            "passport": {
+                "type": "apiKey",
+                "description": "Enter token in format (Bearer <token>)",
+                "name": "Authorization",
+                "in": "header",
+                "scheme": "https",
+                "flows": {
+                    "password": {
+                        "authorizationUrl": "http://localhost/oauth/authorize",
+                        "tokenUrl": "http://localhost/oauth/token",
+                        "refreshUrl": "http://localhost/token/refresh",
+                        "scopes": []
+                    }
+                }
+            }
         }
     },
     "tags": [
@@ -3103,6 +3244,10 @@
         {
             "name": "Payment",
             "description": "Payment"
+        },
+        {
+            "name": "Quest",
+            "description": "Quest"
         },
         {
             "name": "Sacrament",
