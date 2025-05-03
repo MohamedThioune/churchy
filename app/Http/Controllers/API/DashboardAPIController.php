@@ -106,7 +106,7 @@ class DashboardAPIController extends AppBaseController
             ],
             'DonsLegs' => [
                 'operations' => $don_legsQuery->count(),
-                'montant' => $don_legsQuery->sum('amout'),
+                'montant' => $don_legsQuery->sum('amount'),
             ],
         );
         
