@@ -7,6 +7,7 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Tests\TestCase;
 use Tests\ApiTestTrait;
 use App\Models\Quest;
+use Illuminate\Support\Facades\Log;
 
 class QuestApiTest extends TestCase
 {
@@ -20,10 +21,13 @@ class QuestApiTest extends TestCase
         $quest = Quest::factory()->make()->toArray();
         $quest['user_ids'] = [2, 3, 4];
 
+        Log::info('quest', $quest);
         $this->response = $this->json(
             'POST',
             '/api/quests', $quest
         );
+
+        Log::info('response', $this->response->json());
 
         $this->assertApiResponse($quest);
     }

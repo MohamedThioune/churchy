@@ -19,8 +19,9 @@ class PaymentResource extends JsonResource
             'type' => $this->type,
             'target' => $this->target,
             'amount' => $this->amount,
-            'user' => $this->user ?? null,
             'user_id' => $this->user ? $this->user->id : null,
+            'user' => $this->user ?? null,
+            'dated_at' => $this->dated_at,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at
         ];

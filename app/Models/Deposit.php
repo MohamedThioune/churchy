@@ -40,8 +40,16 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  *          type="string",
  *      ),
  *      @OA\Property(
- *          property="created_at",
+ *          property="dated_at",
  *          description="Date du versement",
+ *          readOnly=true,
+ *          nullable=true,
+ *          type="string",
+ *          format="date-time"
+ *      ),
+ *      @OA\Property(
+ *          property="created_at",
+ *          description="",
  *          readOnly=true,
  *          nullable=true,
  *          type="string",
@@ -66,14 +74,16 @@ class Deposit extends Model
         'amount',
         'destination',
         'user_id',
-        'comment'
+        'comment',
+        'dated_at'
     ];
 
     protected $casts = [
         // 'user_id' => 'integer',
         'amount' => 'integer',
         'destination' => 'string',
-        'comment' => 'string'
+        'comment' => 'string',
+        'dated_at' => 'datetime',
     ];
 
     public static array $rules = [

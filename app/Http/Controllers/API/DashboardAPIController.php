@@ -64,14 +64,14 @@ class DashboardAPIController extends AppBaseController
         $sacramentsQuery = DB::table('sacraments')->whereNull('deleted_at');
         $don_legsQuery = DB::table('don_legs')->whereNull('deleted_at');
         if ($startDate && $endDate):
-            $expensesQuery->whereBetween('created_at', [$startDate, $endDate]);
-            $depositsQuery->whereBetween('created_at', [$startDate, $endDate]);
-            $demandsQuery->whereBetween('created_at', [$startDate, $endDate]);
-            $workshipsQuery->whereBetween('created_at', [$startDate, $endDate]);
-            $tithesQuery->whereBetween('created_at', [$startDate, $endDate]);
-            $paymentsQuery->whereBetween('created_at', [$startDate, $endDate]);
-            $sacramentsQuery->whereBetween('created_at', [$startDate, $endDate]);
-            $don_legsQuery->whereBetween('created_at', [$startDate, $endDate]);
+            $expensesQuery->whereBetween('dated_at', [$startDate, $endDate]);
+            $depositsQuery->whereBetween('dated_at', [$startDate, $endDate]);
+            $demandsQuery->whereBetween('dated_at', [$startDate, $endDate]);
+            $workshipsQuery->whereBetween('dated_at', [$startDate, $endDate]);
+            $tithesQuery->whereBetween('dated_at', [$startDate, $endDate]);
+            $paymentsQuery->whereBetween('dated_at', [$startDate, $endDate]);
+            $sacramentsQuery->whereBetween('dated_at', [$startDate, $endDate]);
+            $don_legsQuery->whereBetween('dated_at', [$startDate, $endDate]);
         endif;
         
         // Fetching data dashboard from the database

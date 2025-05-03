@@ -39,6 +39,14 @@ use Illuminate\Database\Eloquent\Model;
  *          format="int32"
  *      ),
  *      @OA\Property(
+ *          property="dated_at",
+ *          description="",
+ *          readOnly=true,
+ *          nullable=true,
+ *          type="string",
+ *          format="date-time"
+ *      ),
+ *      @OA\Property(
  *          property="created_at",
  *          description="Date d'enregistrement",
  *          readOnly=true,
@@ -64,13 +72,15 @@ use Illuminate\Database\Eloquent\Model;
         'type',
         'target',
         'amount',
-        'user_id'
+        'user_id',
+        'dated_at'
     ];
 
     protected $casts = [
         'type' => 'string',
         'target' => 'string',
-        'amount' => 'integer'
+        'amount' => 'integer',
+        'dated_at' => 'datetime',
     ];
 
     public static array $rules = [

@@ -20,6 +20,7 @@ return new class extends Migration
             $table->integer('amount');
             $table->string('authorizer');
             $table->text('comment');
+            $table->timestamp('dated_at')->nullable()->useCurrent();
             $table->timestamps();
             $table->softDeletes();
         });

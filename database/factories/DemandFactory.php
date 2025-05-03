@@ -27,7 +27,7 @@ class DemandFactory extends Factory
             'intention' => $this->faker->text($this->faker->numberBetween(5, 255)),
             'user_id' => $this->faker->randomElement(\App\Models\User::role(Rolenum::CHRISTIAN->value)->pluck('id')->toArray()),
             'comment' => $this->faker->text(500),
-            'messed_at' => $this->faker->dateTimeBetween('-4 weeks', '+4 weeks'),
+            'dated_at' => $this->faker->dateTimeBetween('-4 weeks', '+4 weeks'),
             'created_at' => $this->faker->dateTimeBetween('-4 weeks', '+4 weeks'),
         ];
     }

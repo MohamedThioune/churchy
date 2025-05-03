@@ -28,7 +28,7 @@ class QuestFactory extends Factory
             'type' => $this->faker->randomElement(array('Quête ordinaire', 'Quête impérée')),
             'location' => 'Paroisse ' . $this->faker->randomElement(array('Saint-Joseph', 'Koudougou')),
             'ceremony' => $this->faker->text($this->faker->numberBetween(5, 255)),
-            'quested_at' => $this->faker->dateTimeBetween('-4 weeks', '+4 weeks'),
+            'dated_at' => $this->faker->dateTimeBetween('-4 weeks', '+4 weeks'),
             'created_at' => $this->faker->date('Y-m-d H:i:s'),
         ];
     }

@@ -47,8 +47,16 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  *          type="string",
  *      ),
  *      @OA\Property(
- *          property="created_at",
+ *          property="dated_at",
  *          description="Date de la dépense",
+ *          readOnly=true,
+ *          nullable=true,
+ *          type="string",
+ *          format="date-time"
+ *      ),
+ *      @OA\Property(
+ *          property="created_at",
+ *          description="",
  *          readOnly=true,
  *          nullable=true,
  *          type="string",
@@ -74,7 +82,8 @@ class Expense extends Model
         'type',
         'amount',
         'authorizer',
-        'comment'
+        'comment',
+        'dated_at'
     ];
 
     protected $casts = [
@@ -82,7 +91,8 @@ class Expense extends Model
         'type' => 'string',
         'amount' => 'integer',
         'authorizer' => 'string',
-        'comment' => 'string'
+        'comment' => 'string',
+        'dated_at' => 'datetime',
     ];
 
     public static array $rules = [

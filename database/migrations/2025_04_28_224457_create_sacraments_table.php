@@ -21,7 +21,7 @@ return new class extends Migration
             ->constrained( table: 'users', indexName: 'sacraments_user_id')
             ->onUpdate('cascade')
             ->onDelete('cascade');            
-            $table->timestamp('sacramented_at');
+            $table->timestamp('dated_at')->nullable()->useCurrent();
             $table->timestamps();
             $table->softDeletes();
         });

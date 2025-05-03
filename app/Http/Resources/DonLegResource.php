@@ -17,8 +17,10 @@ class DonLegResource extends JsonResource
         return [
             'id' => $this->id,
             'type' => $this->type,
-            'amout' => $this->amout,
-            'user_id' => $this->user_id,
+            'amount' => $this->amount,
+            'user_id' => $this->user->id ?: null,
+            'user' => $this->user ?? null,
+            'dated_at' => $this->dated_at,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at
         ];

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * @OA\Schema(
  *      schema="Sacrament",
- *      required={"reason","amount","sacramented_at"},
+ *      required={"reason","amount","dated_at"},
  *      @OA\Property(
  *          property="reason",
  *          description="Motif du sacrement|in:Confirmation,Baptême,Première communion,Mariage,Ordre,Onction des malades'",
@@ -32,7 +32,7 @@ use Illuminate\Database\Eloquent\Model;
  *          format="int32"
  *      ),
  *      @OA\Property(
- *          property="sacramented_at",
+ *          property="dated_at",
  *          description="Date du sacrement",
  *          readOnly=false,
  *          nullable=false,
@@ -65,20 +65,20 @@ use Illuminate\Database\Eloquent\Model;
         'reason',
         'amount',
         'user_id',
-        'sacramented_at'
+        'dated_at'
     ];
 
     protected $casts = [
         'reason' => 'string',
         'amount' => 'integer',
-        'sacramented_at' => 'datetime',
+        'dated_at' => 'datetime',
     ];
 
     public static array $rules = [
         'reason' => 'required|string|max:255|in:Confirmation,Baptême,Première communion,Mariage,Ordre,Onction des malades',
         'amount' => 'required|integer',
         'user_id' => 'integer|exists:users,id',
-        'sacramented_at' => 'required'
+        'dated_at' => 'required'
     ];
 
     public function user()

@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 /**
  * @OA\Schema(
  *      schema="Quest",
- *      required={"amount","type","location","ceremony","users","quested_at"},
+ *      required={"amount","type","location","ceremony","user_ids","dated_at"},
  *      @OA\Property(
  *          property="amount",
  *          description="",
@@ -39,7 +39,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  *          type="string",
  *      ),
  *      @OA\Property(
- *          property="users",
+ *          property="user_ids",
  *          description="",
  *          readOnly=false,
  *          nullable=false,
@@ -47,7 +47,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  *          @OA\Items(type="integer", format="int32")
  *      ),
  *      @OA\Property(
- *          property="quested_at",
+ *          property="dated_at",
  *          description="",
  *          readOnly=true,
  *          nullable=true,
@@ -82,7 +82,7 @@ class Quest extends Model
         'type',
         'location',
         'ceremony',
-        'quested_at'
+        'dated_at'
     ];
 
     protected $casts = [
@@ -90,7 +90,7 @@ class Quest extends Model
         'amount' => 'integer',
         'location' => 'string',
         'ceremony' => 'string',
-        'quested_at' => 'datetime',
+        'dated_at' => 'datetime',
     ];
 
     public static array $rules = [
@@ -99,7 +99,7 @@ class Quest extends Model
         'type' => 'required|string|max:255',
         'location' => 'required|string|max:255',
         'ceremony' => 'required|string|max:255',
-        'quested_at' => 'required',
+        'dated_at' => 'required',
     ];
 
     public function settlements()

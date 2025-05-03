@@ -34,6 +34,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  *          format="int32"
  *      ),
  *      @OA\Property(
+ *          property="dated_at",
+ *          description="Date du culte",
+ *          readOnly=false,
+ *          nullable=false,
+ *          type="string",
+ *          format="date-time"
+ *      ),
+ *      @OA\Property(
  *          property="created_at",
  *          description="",
  *          readOnly=true,
@@ -59,12 +67,14 @@ class Workship extends Model
     public $fillable = [
         'amount',
         'comment',
-        'user_id'
+        'user_id',
+        'dated_at'
     ];
 
     protected $casts = [
         'amount' => 'integer',
-        'comment' => 'string'
+        'comment' => 'string',
+        'dated_at' => 'datetime',
     ];
 
     public static array $rules = [

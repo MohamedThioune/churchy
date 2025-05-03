@@ -98,7 +98,7 @@ class QuestAPIController extends AppBaseController
      */
     public function store(CreateQuestAPIRequest $request): JsonResponse
     {
-        $input = $request->only(['amount', 'type', 'location', 'ceremony', 'quested_at']);
+        $input = $request->only(['amount', 'type', 'location', 'ceremony', 'dated_at']);
 
         /** @var Quest $quest */
         $quest = Quest::create($input);

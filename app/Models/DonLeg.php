@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 /**
  * @OA\Schema(
  *      schema="DonLeg",
- *      required={"type","amout","user_id"},
+ *      required={"type","amount","user_id"},
  *      @OA\Property(
  *          property="type",
  *          description="Type de don|in:Don,Leg,Nature,Espèce",
@@ -32,6 +32,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  *          nullable=false,
  *          type="integer",
  *          format="int32"
+ *      ),
+ *      @OA\Property(
+ *          property="dated_at",
+ *          description="",
+ *          readOnly=true,
+ *          nullable=true,
+ *          type="string",
+ *          format="date-time"
  *      ),
  *      @OA\Property(
  *          property="created_at",
@@ -58,18 +66,20 @@ class DonLeg extends Model
 
     public $fillable = [
         'type',
-        'amout',
-        'user_id'
+        'amount',
+        'user_id',
+        'dated_at'
     ];
 
     protected $casts = [
         'type' => 'string',
-        'amout' => 'integer'
+        'amount' => 'integer',
+        'dated_at' => 'datetime',
     ];
 
     public static array $rules = [
         'type' => 'required|in:Don,Leg,Nature,Espèce',
-        'amout' => 'required|integer',
+        'amount' => 'required|integer',
         'user_id' => 'required|integer|exists:users,id'
     ];
 

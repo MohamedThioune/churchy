@@ -16,11 +16,12 @@ return new class extends Migration
         Schema::create('don_legs', function (Blueprint $table) {
             $table->id('id');
             $table->string('type');
-            $table->integer('amout');
+            $table->integer('amount');
             $table->foreignId('user_id')->nullable()
             ->constrained( table: 'users', indexName: 'don_legs_user_id')
             ->onUpdate('cascade')
             ->onDelete('cascade'); 
+            $table->timestamp('dated_at')->nullable()->useCurrent();
             $table->timestamps();
             $table->softDeletes();
         });

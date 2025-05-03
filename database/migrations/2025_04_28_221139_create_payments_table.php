@@ -21,7 +21,8 @@ return new class extends Migration
             $table->foreignId('user_id')->nullable()
             ->constrained( table: 'users', indexName: 'payments_user_id')
             ->onUpdate('cascade')
-            ->onDelete('cascade');            
+            ->onDelete('cascade');   
+            $table->timestamp('dated_at')->nullable()->useCurrent();         
             $table->timestamps();
             $table->softDeletes();
         });

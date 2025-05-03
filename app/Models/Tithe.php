@@ -27,6 +27,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  *          format="int32"
  *      ),
  *      @OA\Property(
+ *          property="dated_at",
+ *          description="Date du dimes",
+ *          readOnly=false,
+ *          nullable=false,
+ *          type="string",
+ *          format="date-time"
+ *      ),
+ *      @OA\Property(
  *          property="created_at",
  *          description="",
  *          readOnly=true,
@@ -51,11 +59,13 @@ class Tithe extends Model
 
     public $fillable = [
         'amount',
-        'user_id'
+        'user_id',
+        'dated_at'
     ];
 
     protected $casts = [
-        'amount' => 'integer'
+        'amount' => 'integer',
+        'dated_at' => 'datetime',
     ];
 
     public static array $rules = [

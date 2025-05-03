@@ -24,12 +24,13 @@ class ExpenseFactory extends Factory
     {
         
         return [
-            'reason' => $this->faker->word(),
+            'reason' => $this->faker->randomElement(array('Besoin urgent','Aide a un disciple','Contribution','Démarches','Autres')),
             'type' => $this->faker->randomElement(array('Salaires et honoraires','Aide aux paroissiens','Événements paroissiaux','Frais administratifs','Autres')),
             'amount' => $this->faker->randomElement(array(10, 10000, 15000, 1500, 100, 20000, 5000, 3000, 2000)),
             'authorizer' => $this->faker->randomElement(array('Curé','Trésorier','Vicaire','Autres')),
             'comment' => $this->faker->words(10, true),
-            'created_at' => $this->faker->dateTimeBetween('-4 weeks', '+4 weeks'),
+            'dated_at' => $this->faker->dateTimeBetween('-4 weeks', '+4 weeks'),
+            'created_at' => $this->faker->date('Y-m-d H:i:s')
         ];
     }
 }

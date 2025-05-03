@@ -20,7 +20,7 @@ class DemandResource extends JsonResource
             'comment' => $this->comment,
             'user' => $this->user ?? null,
             'user_id' => $this->user ? $this->user->id : null,
-            'messed_at' => $this->messed_at,
+            'dated_at' => $this->dated_at,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at
         ];

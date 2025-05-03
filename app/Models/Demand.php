@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 /**
  * @OA\Schema(
  *      schema="Demand",
- *      required={"intention","user_id", "messed_at"},
+ *      required={"intention","user_id", "dated_at"},
  *      @OA\Property(
  *          property="intention",
  *          description="",
@@ -32,8 +32,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  *          type="string",
  *      ),
  *      @OA\Property(
- *          property="messed_at",
- *          description="",
+ *          property="dated_at",
+ *          description="Date de la demande",
  *          readOnly=true,
  *          nullable=true,
  *          type="string",
@@ -41,7 +41,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  *      ),
  *      @OA\Property(
  *          property="created_at",
- *          description="Date de la demande",
+ *          description="",
  *          readOnly=true,
  *          nullable=true,
  *          type="string",
@@ -66,18 +66,19 @@ class Demand extends Model
         'intention',
         'user_id',
         'comment',
-        'messed_at'
+        'dated_at'
     ];
 
     protected $casts = [
         'intention' => 'string',
         'comment' => 'string',
-        'messed_at' => 'datetime',
+        'dated_at' => 'datetime',
     ];
 
     public static array $rules = [
         'intention' => 'required|string|max:255',
         'user_id' => 'integer|exists:users,id',
+        'dated_at' => 'required',
     ];
 
     public function user()

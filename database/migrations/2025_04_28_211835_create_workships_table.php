@@ -21,6 +21,7 @@ return new class extends Migration
             ->constrained( table: 'users', indexName: 'workships_user_id')
             ->onUpdate('cascade')
             ->onDelete('cascade'); 
+            $table->timestamp('dated_at')->nullable()->useCurrent();
             $table->timestamps();
             $table->softDeletes();
         });

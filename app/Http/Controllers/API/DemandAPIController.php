@@ -96,7 +96,7 @@ class DemandAPIController extends AppBaseController
     public function store(CreateDemandAPIRequest $request): JsonResponse
     {
         $input = $request->all();
-
+        
         /** @var Demand $demand */
         $demand = Demand::create($input);
 

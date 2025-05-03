@@ -22,6 +22,7 @@ class ExpenseResource extends JsonResource
             'amount' => $this->amount,
             'authorizer' => $this->authorizer,
             'comment' => $this->comment,
+            'dated_at' => $this->dated_at,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at
         ];

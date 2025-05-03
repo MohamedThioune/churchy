@@ -19,7 +19,7 @@ return new class extends Migration
             $table->integer('amount');
             $table->string('location');
             $table->string('ceremony');
-            $table->timestamp('quested_at');
+            $table->timestamp('dated_at')->nullable()->useCurrent();
             $table->timestamps();
             $table->softDeletes();
         });

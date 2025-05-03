@@ -28,8 +28,8 @@ class DepositFactory extends Factory
             'destination' => $this->faker->randomElement(array('Église','École','Caisse')),
             'user_id' => $this->faker->randomElement(\App\Models\User::role(Rolenum::CASHIER->value)->pluck('id')->toArray()),
             'comment' => $this->faker->text(500),
-            'created_at' => $this->faker->dateTimeBetween('-4 weeks', '+4 weeks'),
-            'updated_at' => $this->faker->date('Y-m-d H:i:s')
+            'dated_at' => $this->faker->dateTimeBetween('-4 weeks', '+4 weeks'),
+            'created_at' => $this->faker->date('Y-m-d H:i:s')
         ];
     }
 }

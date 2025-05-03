@@ -22,7 +22,7 @@ class QuestResource extends JsonResource
             'ceremony' => $this->ceremony,
             'user_ids' => $this->users ? $this->users->pluck('id') : null,
             'users' => $this->users ?? null,
-            'quested_at' => $this->quested_at,
+            'dated_at' => $this->dated_at,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at
         ];
