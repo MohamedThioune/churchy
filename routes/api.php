@@ -44,5 +44,8 @@ Route::group(['middleware' => ['auth:api', 'role:Admin']], function () {
     Route::get('/dashboard/home', [App\Http\Controllers\API\DashboardAPIController::class, 'index'])->name('dashboard.index');
     Route::post('/upload', [App\Http\Controllers\API\FileAPIController::class, 'upload'])->name('file.upload');
     Route::resource('files', App\Http\Controllers\API\FileAPIController::class)->except(['create', 'edit']);
+    Route::get('/users', [App\Http\Controllers\API\DashboardAPIController::class, 'users'])->name('dashboard.users');
 });
+
+
 

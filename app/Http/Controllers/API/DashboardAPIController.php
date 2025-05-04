@@ -6,6 +6,9 @@ use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use DB;
+use App\Models\User;
+use App\Enums\Rolenum;
+use App\Http\Resources\UserResource;
 
 class DashboardAPIController extends AppBaseController
 {
@@ -111,5 +114,82 @@ class DashboardAPIController extends AppBaseController
         );
         
         return $this->sendResponse($data, 'Dashboard data retrieved successfully');
+    }
+
+    /**
+     * @OA\Get(
+     *      path="/users",
+     *      summary="getUserList",
+     *      tags={"User"},
+     *      description="Get all Users",
+     *      @OA\Parameter(
+     *          name="skip",
+     *          description="skip element",
+     *           @OA\Schema(
+     *             type="integer"
+     *          ),
+     *          in="query"
+     *      ),
+     *      @OA\Parameter(
+     *          name="limit",
+     *          description="limit elements",
+     *           @OA\Schema(
+     *             type="integer"
+     *          ),
+     *          in="query"
+     *      ),
+     *      @OA\Parameter(
+     *          name="role",
+     *          description="role of the user ('Caisse' or 'User' for christian users)",
+     *           @OA\Schema(
+     *             type="string"
+     *          ),
+     *          in="query"
+     *      ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="successful operation",
+     *          @OA\JsonContent(
+     *              type="object",
+     *              @OA\Property(
+     *                  property="success",
+     *                  type="boolean"
+     *              ),
+     *              @OA\Property(
+     *                  property="data",
+     *                  type="array",
+     *                  @OA\Items(ref="#/components/schemas/User")
+     *              ),
+     *              @OA\Property(
+     *                  property="message",
+     *                  type="string"
+     *              )
+     *          )
+     *      )
+     * )
+    */
+    public function users(Request $request): JsonResponse
+    {
+        $query = User::query();
+
+        if ($request->get('skip')) 
+            $query->skip($request->get('skip'));
+        
+        if ($request->get('limit')) 
+            $query->limit($request->get('limit'));
+        
+        $role = $request->get('role');
+
+        match ($role) {
+            Rolenum::CASHIER->value    => $query->role(Rolenum::CASHIER->value),
+            Rolenum::CHRISTIAN->value  => $query->role(Rolenum::CHRISTIAN->value),
+            default => $query->whereDoesntHave('roles', fn ($q) =>
+                $q->where('name', Rolenum::ADMIN->value)
+            ),
+        };
+            
+        $users = $query->get();
+
+        return $this->sendResponse(UserResource::collection($users), 'Users retrieved successfully !');
     }
 }
