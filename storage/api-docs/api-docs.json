@@ -278,6 +278,68 @@
                 ]
             }
         },
+        "/users": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "getUserList",
+                "description": "Get all Users",
+                "operationId": "b436f4405150b8e997a90b598c2a83cf",
+                "parameters": [
+                    {
+                        "name": "skip",
+                        "in": "query",
+                        "description": "skip element",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "limit elements",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "role",
+                        "in": "query",
+                        "description": "role of the user ('Caisse' or 'User' for christian users)",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/User"
+                                            }
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/demands": {
             "get": {
                 "tags": [
@@ -2611,7 +2673,7 @@
                 "required": [
                     "intention",
                     "user_id",
-                    "messed_at"
+                    "dated_at"
                 ],
                 "properties": {
                     "intention": {
@@ -2633,15 +2695,15 @@
                         "readOnly": false,
                         "nullable": true
                     },
-                    "messed_at": {
-                        "description": "",
+                    "dated_at": {
+                        "description": "Date de la demande",
                         "type": "string",
                         "format": "date-time",
                         "readOnly": true,
                         "nullable": true
                     },
                     "created_at": {
-                        "description": "Date de la demande",
+                        "description": "",
                         "type": "string",
                         "format": "date-time",
                         "readOnly": true,
@@ -2690,8 +2752,15 @@
                         "readOnly": false,
                         "nullable": true
                     },
-                    "created_at": {
+                    "dated_at": {
                         "description": "Date du versement",
+                        "type": "string",
+                        "format": "date-time",
+                        "readOnly": true,
+                        "nullable": true
+                    },
+                    "created_at": {
+                        "description": "",
                         "type": "string",
                         "format": "date-time",
                         "readOnly": true,
@@ -2710,7 +2779,7 @@
             "DonLeg": {
                 "required": [
                     "type",
-                    "amout",
+                    "amount",
                     "user_id"
                 ],
                 "properties": {
@@ -2733,6 +2802,13 @@
                         "format": "int32",
                         "readOnly": false,
                         "nullable": false
+                    },
+                    "dated_at": {
+                        "description": "",
+                        "type": "string",
+                        "format": "date-time",
+                        "readOnly": true,
+                        "nullable": true
                     },
                     "created_at": {
                         "description": "",
@@ -2790,8 +2866,15 @@
                         "readOnly": false,
                         "nullable": true
                     },
-                    "created_at": {
+                    "dated_at": {
                         "description": "Date de la dépense",
+                        "type": "string",
+                        "format": "date-time",
+                        "readOnly": true,
+                        "nullable": true
+                    },
+                    "created_at": {
+                        "description": "",
                         "type": "string",
                         "format": "date-time",
                         "readOnly": true,
@@ -2896,6 +2979,13 @@
                         "readOnly": false,
                         "nullable": true
                     },
+                    "dated_at": {
+                        "description": "",
+                        "type": "string",
+                        "format": "date-time",
+                        "readOnly": true,
+                        "nullable": true
+                    },
                     "created_at": {
                         "description": "Date d'enregistrement",
                         "type": "string",
@@ -2919,8 +3009,8 @@
                     "type",
                     "location",
                     "ceremony",
-                    "users",
-                    "quested_at"
+                    "user_ids",
+                    "dated_at"
                 ],
                 "properties": {
                     "amount": {
@@ -2948,7 +3038,7 @@
                         "readOnly": false,
                         "nullable": false
                     },
-                    "users": {
+                    "user_ids": {
                         "description": "",
                         "type": "array",
                         "items": {
@@ -2958,7 +3048,7 @@
                         "readOnly": false,
                         "nullable": false
                     },
-                    "quested_at": {
+                    "dated_at": {
                         "description": "",
                         "type": "string",
                         "format": "date-time",
@@ -2986,7 +3076,7 @@
                 "required": [
                     "reason",
                     "amount",
-                    "sacramented_at"
+                    "dated_at"
                 ],
                 "properties": {
                     "reason": {
@@ -3009,7 +3099,7 @@
                         "readOnly": false,
                         "nullable": true
                     },
-                    "sacramented_at": {
+                    "dated_at": {
                         "description": "Date du sacrement",
                         "type": "string",
                         "format": "date-time",
@@ -3052,6 +3142,13 @@
                         "format": "int32",
                         "readOnly": false,
                         "nullable": true
+                    },
+                    "dated_at": {
+                        "description": "Date du dimes",
+                        "type": "string",
+                        "format": "date-time",
+                        "readOnly": false,
+                        "nullable": false
                     },
                     "created_at": {
                         "description": "",
@@ -3176,6 +3273,13 @@
                         "readOnly": false,
                         "nullable": true
                     },
+                    "dated_at": {
+                        "description": "Date du culte",
+                        "type": "string",
+                        "format": "date-time",
+                        "readOnly": false,
+                        "nullable": false
+                    },
                     "created_at": {
                         "description": "",
                         "type": "string",
@@ -3220,6 +3324,10 @@
         {
             "name": "Dashboard",
             "description": "Dashboard"
+        },
+        {
+            "name": "User",
+            "description": "User"
         },
         {
             "name": "Demand",
