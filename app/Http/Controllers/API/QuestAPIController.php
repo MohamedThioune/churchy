@@ -111,7 +111,6 @@ class QuestAPIController extends AppBaseController
                 continue;
 
             if (!$user->settlements->contains('quest_id', $quest->id)) 
-                // $user->settlements()->create(['quest_id', $quest->id]);
                 Settlement::create(['quest_id' => $quest->id, 'user_id' => $user->id]);
         endforeach;
 
@@ -208,10 +207,11 @@ class QuestAPIController extends AppBaseController
      *      )
      * )
      */
-    public function update($id, UpdateQuestAPIRequest $request): JsonResponse
+    public function update($id, Request $request): JsonResponse
     {
         /** @var Quest $quest */
         $quest = Quest::find($id);
+        $quest_id = $quest->id;
 
         if (empty($quest)) {
             return $this->sendError('Quest not found');
@@ -220,17 +220,16 @@ class QuestAPIController extends AppBaseController
         $quest->save();
 
         //users settlements
-        $users = $request->has('users') ? $request->get('users') : [];
+        $users = $request->has('user_ids') ? $request->get('user_ids') : [];
         if (!empty($users))
-            Settlement::where('quest_id', $id)->delete();
-
+            Settlement::where('quest_id', $quest_id)->delete();
         foreach($users as $id):
             $user = User::find($id);
             if (empty($user))
                 continue;
 
-            if (!$user->settlements->contains('quest_id', $id)) 
-                $user->settlements()->create(['quest_id', $id]);
+            if (!$user->settlements->contains('quest_id', $quest_id)) 
+                Settlement::create(['quest_id' => $quest_id, 'user_id' => $user->id]);
         endforeach;
 
         return $this->sendResponse(new QuestResource($quest), 'Quest updated successfully');

@@ -37,8 +37,8 @@ Route::group(['middleware' => ['auth:api']], function () {
     Route::resource('payments', App\Http\Controllers\API\PaymentAPIController::class)->except(['create', 'edit']);
     Route::resource('sacraments', App\Http\Controllers\API\SacramentAPIController::class)->except(['create', 'edit']);
     Route::resource('don-legs', App\Http\Controllers\API\DonLegAPIController::class)->except(['create', 'edit']);
-    Route::resource('quests', App\Http\Controllers\API\QuestAPIController::class)->except(['create', 'edit']);
 });
+Route::resource('quests', App\Http\Controllers\API\QuestAPIController::class)->except(['create', 'edit']);
 
 Route::group(['middleware' => ['auth:api', 'role:Admin']], function () {
     Route::get('/dashboard/home', [App\Http\Controllers\API\DashboardAPIController::class, 'index'])->name('dashboard.index');
